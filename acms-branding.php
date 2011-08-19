@@ -10,8 +10,7 @@ Author URI: http://nlsmith.com/
 
 function acms_branding_admin_head() {
     $plugin_name = 'acms_branding';
-    // FIXME: This doesn't get server over HTTPS
-    $location = WP_CONTENT_URL . '/plugins/acms-branding/logo.png';
+    $location = ( ( empty( $_SERVER['HTTPS'] ) ) ? WP_CONTENT_URL : str_replace( 'http://', 'https://', WP_CONTENT_URL ) ) . '/plugins/acms-branding/logo.png';
 ?>
 <style type="text/css">
     #header-logo {
